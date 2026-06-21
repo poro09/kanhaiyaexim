@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KanhaiyaExim | Premium International Agricultural Exports</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            500: '#10b981',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'ui-serif', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons via ancient cdn -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: transparent; color: #1f2937; overflow-x: hidden; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        #webgl-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; pointer-events: none; background: transparent; }
+        /* Glassmorphism Classes */
+        .glass { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 8px 30px rgba(0,0,0,0.04); transition: all 0.3s ease; }
+        .glass-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <!-- Nature Mountain & Topography Background -->
+    <div class="fixed inset-0 pointer-events-none -z-20 overflow-hidden bg-[#fcfbf7]">
+        <!-- Topography vector accent at the top left -->
+        <svg class="absolute -top-10 -left-10 w-[700px] h-[700px] opacity-[0.05] text-[#064e3b]" viewBox="0 0 500 500" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 100 Q 150 50 250 150 T 450 100" stroke-width="0.75" />
+            <path d="M 50 150 Q 150 100 250 200 T 450 150" stroke-width="0.75" />
+            <path d="M 50 200 Q 150 150 250 250 T 450 200" stroke-width="0.75" />
+            <path d="M 50 250 Q 150 200 250 300 T 450 250" stroke-width="0.75" />
+            <path d="M 50 300 Q 150 250 250 350 T 450 300" stroke-width="0.75" />
+            <path d="M 50 350 Q 150 300 250 400 T 450 350" stroke-width="0.75" />
+            <path d="M 50 400 Q 150 350 250 450 T 450 400" stroke-width="0.75" />
+        </svg>
+
+        <!-- Sunset Glowing Sun behind the mountain crest -->
+        <div class="absolute bottom-[35%] right-[10%] xl:right-[15%] w-[450px] h-[450px] rounded-full bg-gradient-to-tr from-amber-500/8 to-transparent blur-3xl"></div>
+
+        <!-- Majestic Overlapping Mountain Silhouettes / Nashik Western Ghats at the bottom -->
+        <svg class="absolute bottom-0 left-0 w-full h-[60vh] min-h-[380px] opacity-[0.24] text-[#064e3b]" viewBox="0 0 1440 600" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="mountGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#064e3b" stop-opacity="0.08" />
+                    <stop offset="100%" stop-color="#064e3b" stop-opacity="0.6" />
+                </linearGradient>
+                <linearGradient id="mountGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#d97706" stop-opacity="0.04" />
+                    <stop offset="100%" stop-color="#064e3b" stop-opacity="0.7" />
+                </linearGradient>
+                <linearGradient id="mountGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#059669" stop-opacity="0.15" />
+                    <stop offset="100%" stop-color="#064e3b" stop-opacity="0.85" />
+                </linearGradient>
+            </defs>
+            
+            <!-- Layer 1: Furthest High Peaks -->
+            <path d="M0 280 L200 160 L420 310 L640 130 L860 250 L1080 110 L1300 290 L1440 190 L1440 600 L0 600 Z" fill="url(#mountGrad1)" opacity="0.55" stroke="none" />
+            
+            <!-- Layer 2: Mid Rounded Ridges -->
+            <path d="M0 350 Q220 260 440 370 T880 300 T1320 380 T1440 330 L1440 600 L0 600 Z" fill="url(#mountGrad2)" opacity="0.7" stroke="none" />
+            
+            <!-- Layer 3: Mid-close sharp rocky peaks -->
+            <path d="M0 430 L280 330 L550 450 L820 350 L1100 470 L1350 340 L1440 420 L1440 600 L0 600 Z" fill="url(#mountGrad3)" opacity="0.85" stroke="none" />
+
+            <!-- Layer 4: Foreground soft rolling valley heights -->
+            <path d="M0 510 Q400 430 800 520 T1440 490 L1440 600 L0 600 Z" fill="#064e3b" opacity="0.2" stroke="none" />
+        </svg>
+    </div>
+
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 w-full z-50 glass shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-xl tracking-tight text-emerald-900">KanhaiyaExim</span>
+            </div>
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-600">
+                <a href="#home" class="hover:text-emerald-700 transition-colors">Home</a>
+                <a href="#products" class="hover:text-emerald-700 transition-colors">Products</a>
+                <a href="#capabilities" class="hover:text-emerald-700 transition-colors">Capabilities</a>
+                <a href="#process" class="hover:text-emerald-700 transition-colors">Process</a>
+                <a href="#contact" class="hover:text-emerald-700 transition-colors">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white text-sm font-semibold rounded-full shadow-md hover:shadow-lg transition-all">
+                Get a Quote
+            </a>
+            <button class="md:hidden text-gray-700 text-2xl">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- HERO SECTION -->
+        <section id="home" class="relative min-h-[90vh] flex items-center">
+            <div class="max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12">
+                <div class="max-w-2xl py-20 z-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-emerald-800 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Premium Global Export
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-8">
+                        Dry Excellence from <span class="text-emerald-800 relative inline-block">
+                            India
+                            <span class="absolute bottom-1 left-0 w-full h-2 bg-emerald-200/50 -z-10 transform -rotate-1"></span>
+                        </span> to the World.
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-10 leading-relaxed max-w-xl">
+                        Based in Nashik, Maharashtra. We connect Indian agricultural excellence to global markets, supplying premium dry whole foods, exact-spec powders, and fully customized food product solutions.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#products" class="px-8 py-3.5 bg-emerald-800 hover:bg-emerald-900 text-white font-medium rounded-full shadow-lg shadow-emerald-900/20 transition-all">
+                            Explore Products
+                        </a>
+                        <a href="#contact" class="px-8 py-3.5 glass hover:bg-white text-gray-800 font-medium rounded-full transition-all">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERTISE GRID -->
+        <section id="products" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Capabilities & Products</h2>
+                    <p class="text-gray-600">Supplying the ingredients that power global food & beverage brands, nutraceuticals, and culinary institutions.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card p-8 rounded-3xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-plant text-emerald-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Dry Vegetables</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Onion, Garlic, Potato, Cabbage, Carrot. Available in Flakes, Minced, Chopped, or Custom Specs.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-leaf text-emerald-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Dry Fruits & Herbs</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Mint, Coriander, Mango, Banana, Apple. Perfectly preserved color, aroma, and essential oils.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-flask text-emerald-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Spray-Dried Powders</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Fine-mesh powders for instant dissolution in beverages, soups, and ready-to-eat meals.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-test-tube text-emerald-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Food Products</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Tailor-made formulation based on your exact proprietary recipes, moisture levels, and mesh sizes.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl group">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="ph ph-check-circle text-emerald-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Nutraceutical Ingredients</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Specialty botanical extracts and superfood powders adhering to strict bio-active standards.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US -->
+        <section id="capabilities" class="py-24 glass border-y border-white/50 relative z-10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 tracking-tight">Built on the foundation of Indian agriculture, designed for global standards.</h2>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"><i class="ph ph-factory text-xl"></i></div>
+                                <div><h4 class="font-bold text-gray-900 text-lg">Direct Farmer Sourcing</h4><p class="text-gray-600 text-sm mt-1">Eliminating middlemen to guarantee fair trade and absolute traceability from soil to shipment.</p></div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"><i class="ph ph-shield-check text-xl"></i></div>
+                                <div><h4 class="font-bold text-gray-900 text-lg">Strict Quality Control</h4><p class="text-gray-600 text-sm mt-1">ISO, HACCP, and FSSAI certified facility partners ensuring 100% microbiologically safe output.</p></div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"><i class="ph ph-package text-xl"></i></div>
+                                <div><h4 class="font-bold text-gray-900 text-lg">Private Label & Custom Packaging</h4><p class="text-gray-600 text-sm mt-1">From bulk 25kg paper bags to retail-ready pouches. Connect with us to discuss your exact branding and custom packaging specifications.</p></div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700"><i class="ph ph-file-text text-xl"></i></div>
+                                <div><h4 class="font-bold text-gray-900 text-lg">Reliable Export Documentation</h4><p class="text-gray-600 text-sm mt-1">Flawless execution of Phytosanitary certificates, Certificate of Origin, and customs compliance.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-emerald-100 to-amber-50 rounded-[40px] transform rotate-3 scale-105 opacity-50 blur-lg"></div>
+                        <div class="bg-white/80 backdrop-blur-xl border border-white/60 p-10 rounded-[32px] shadow-xl relative text-center">
+                           <h3 class="font-serif italic text-2xl text-emerald-900 mb-6 font-medium">"Our promise is consistency. In color, in flavor, and in delivery."</h3>
+                           <div class="flex items-center justify-center gap-6 pt-6 border-t border-gray-100">
+                                <div class="text-center"><div class="text-3xl font-bold text-gray-900">20+</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Countries</div></div>
+                                <div class="w-px h-10 bg-gray-200"></div>
+                                <div class="text-center"><div class="text-3xl font-bold text-gray-900">100%</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Traceable</div></div>
+                                <div class="w-px h-10 bg-gray-200"></div>
+                                <div class="text-center"><div class="text-3xl font-bold text-gray-900">50+</div><div class="text-xs font-semibold uppercase tracking-wider text-gray-500 mt-1">Products</div></div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS TIMELINE -->
+        <section id="process" class="py-24 relative z-10 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">The Export Journey</h2>
+                    <p class="text-gray-600">A streamlined 8-step process ensuring total transparency and on-time global delivery.</p>
+                </div>
+                <!-- Simple CSS Scroll Snap Timeline -->
+                <div class="flex overflow-x-auto pb-12 hide-scrollbar snap-x gap-6 relative" style="-webkit-overflow-scrolling: touch;">
+                    <div class="absolute top-6 left-0 w-max h-0.5 bg-emerald-100 -z-10"></div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">1</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Spec Selection</h4>
+                        <p class="text-sm text-gray-600">Identify product parameters & mesh sizes.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">2</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Quotation</h4>
+                        <p class="text-sm text-gray-600">FOB, CIF, or CNF pricing models provided.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">3</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Sampling</h4>
+                        <p class="text-sm text-gray-600">Approval of physical product samples.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">4</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Production & QA</h4>
+                        <p class="text-sm text-gray-600">Processing with multiple testing checkpoints.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">5</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Packaging</h4>
+                        <p class="text-sm text-gray-600">Custom branding & moisture-proof sealing.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">6</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Export Docs</h4>
+                        <p class="text-sm text-gray-600">Phyto, COO, Health Certificates generated.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">7</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Shipment</h4>
+                        <p class="text-sm text-gray-600">Container loading & vessel dispatch.</p>
+                    </div>
+                    <div class="flex-shrink-0 w-64 snap-center relative">
+                        <div class="w-12 h-12 rounded-full bg-emerald-800 text-white font-bold flex items-center justify-center text-lg border-4 border-[#fcfbf7] shadow-sm mb-6">8</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-2">Support</h4>
+                        <p class="text-sm text-gray-600">Post-arrival tracking and quality support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM & REPS -->
+        <section class="py-24 bg-emerald-900/5 relative z-10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Direct Contacts</h2>
+                    <p class="text-gray-600">Connect with our leadership team for immediate requirements.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass border border-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="font-bold text-xl text-gray-900">Abhijeet Tidke</h3>
+                            <div class="text-sm text-emerald-700 font-medium mt-1 mb-4">Founder & Director</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm mb-6"><i class="ph ph-phone text-lg"></i> +91 96992 65156</div>
+                        </div>
+                        <a href="https://wa.me/919699265156" target="_blank" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-medium rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
+                            <i class="ph ph-whatsapp-logo text-lg"></i> Message on WhatsApp
+                        </a>
+                    </div>
+                    <div class="glass border border-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="font-bold text-xl text-gray-900">Pritesh Khode</h3>
+                            <div class="text-sm text-emerald-700 font-medium mt-1 mb-4">Export Sales & Business Development</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm mb-6"><i class="ph ph-phone text-lg"></i> +91 93225 48985</div>
+                        </div>
+                        <a href="https://wa.me/919322548985" target="_blank" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-medium rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
+                            <i class="ph ph-whatsapp-logo text-lg"></i> Message on WhatsApp
+                        </a>
+                    </div>
+                    <div class="glass border border-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full">
+                        <div>
+                            <h3 class="font-bold text-xl text-gray-900">Ansh Tidke</h3>
+                            <div class="text-sm text-emerald-700 font-medium mt-1 mb-4">Sourcing & Procurement</div>
+                            <div class="flex items-center gap-2 text-gray-600 text-sm mb-6"><i class="ph ph-phone text-lg"></i> +91 92268 16373</div>
+                        </div>
+                        <a href="https://wa.me/919226816373" target="_blank" class="w-full py-2.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-medium rounded-xl flex items-center justify-center gap-2 transition-colors text-sm">
+                            <i class="ph ph-whatsapp-logo text-lg"></i> Message on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / FOOTER -->
+        <section id="contact" class="bg-white relative z-10 border-t border-gray-100 pt-24 pb-12">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 mb-20">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 mb-6">Start a Global Partnership.</h2>
+                        <p class="text-gray-600 mb-10 max-w-md">Whether you need a 20ft container of dry onion flakes or a highly specific nutraceutical powder formulation, our team is ready to deliver.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex gap-4 items-start">
+                                <div class="p-3 bg-gray-50 rounded-lg text-emerald-700"><i class="ph ph-map-pin text-xl"></i></div>
+                                <div>
+                                    <div class="font-bold text-gray-900">Headquarters</div>
+                                    <div class="text-gray-600 text-sm mt-1 leading-relaxed">Kanhaiya Farm, Janori, Taluka Dindori,<br/>Nashik, Maharashtra – 422206, India.</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="p-3 bg-gray-50 rounded-lg text-emerald-700"><i class="ph ph-envelope text-xl"></i></div>
+                                <div>
+                                    <div class="font-bold text-gray-900">Official Email</div>
+                                    <div class="text-gray-600 text-sm mt-1">KanhaiyaExim@yahoo.com</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                            <div class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">Official Credentials</div>
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <div><span class="font-medium text-gray-900">GSTIN:</span> 27DAVPT••••Q1ZK</div>
+                                <div><span class="font-medium text-gray-900">IEC:</span> DAVPT••••Q</div>
+                                <div><span class="font-medium text-gray-900">Udyam:</span> UDYAM-MH-23-••••371 | Micro Enterprise</div>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500 italic">
+                                * Products sourced from manufacturing partners holding applicable certifications (FSSAI, ISO, HACCP, GMP, Organic).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTACT FORM -->
+                    <div id="contact-form-container" class="bg-white border border-gray-200 rounded-[32px] p-8 md:p-10 shadow-lg">
+                        <form id="inquiry-form" class="space-y-5" onsubmit="handleInquirySubmit(event)">
+                            <div class="grid grid-cols-2 gap-5">
+                                <div class="space-y-1.5">
+                                    <label class="text-sm font-medium text-gray-700">Name</label>
+                                    <input type="text" id="form-name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all" placeholder="John Doe">
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-sm font-medium text-gray-700">Company</label>
+                                    <input type="text" id="form-company" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all" placeholder="Inc.">
+                                </div>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-sm font-medium text-gray-700">Email Address</label>
+                                <input type="email" id="form-email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all" placeholder="john@company.com">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-sm font-medium text-gray-700">Requirement Type</label>
+                                <select id="form-requirement" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all text-gray-700">
+                                    <option>Dry Vegetables</option>
+                                    <option>Dry Fruits & Herbs</option>
+                                    <option>Powders & Spray-Dried</option>
+                                    <option>Custom Formulation</option>
+                                    <option>Other / General Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-sm font-medium text-gray-700">Message & Specifications</label>
+                                <textarea id="form-message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all resize-none" placeholder="Provide details regarding volume, mesh size, destination port, etc."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl shadow-md transition-all mt-4">
+                                Submit Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-gray-100 text-sm text-gray-500">
+                    <div>&copy; 2026 KanhaiyaExim. All rights reserved.</div>
+                    <div class="flex gap-6 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-emerald-700">Privacy Policy</a>
+                        <a href="#" class="hover:text-emerald-700">Terms of Trade</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/919699265156" target="_blank" rel="noreferrer" class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-xl transition-all z-50 group">
+        <i class="ph ph-whatsapp-logo text-3xl"></i>
+        <span class="absolute right-full mr-4 bg-white text-gray-800 px-3 py-1.5 rounded-lg font-medium text-sm shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+            Chat with us
+        </span>
+    </a>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const company = document.getElementById('form-company').value || 'N/A';
+            const email = document.getElementById('form-email').value;
+            const requirement = document.getElementById('form-requirement').value;
+            const message = document.getElementById('form-message').value;
+
+            const mailtoUrl = `mailto:kanhaiyaexim@yahoo.com?subject=B2B Import Inquiry from ${encodeURIComponent(company || name)}&body=${encodeURIComponent(
+                `Dear KanhaiyaExim Team,\n\nI would like to submit a commercial import inquiry.\n\nSPECIFICATIONS:\n- Name: ${name}\n- Company: ${company}\n- Email: ${email}\n- Requirement: ${requirement}\n\nDETAILED MESSAGE:\n${message}\n\nPlease provide a CIF/FOB quotation at your earliest convenience.\n\nBest regards,\n${name}`
+            )}`;
+
+            const whatsappUrl = `https://wa.me/919699265156?text=${encodeURIComponent(
+                `Hello KanhaiyaExim, this is ${name} from ${company}. I'm interested in ${requirement}.\nEmail: ${email}\nMessage: ${message}`
+            )}`;
+
+            document.getElementById('contact-form-container').innerHTML = `
+                <div class="text-center py-6 flex flex-col items-center justify-center">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-800 rounded-full flex items-center justify-center mb-6 animate-bounce">
+                        <i class="ph ph-check-circle text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-gray-900 tracking-tight mb-2">Inquiry Form Prepared</h3>
+                    <p class="text-sm text-gray-600 mb-8 max-w-sm ml-auto mr-auto leading-relaxed text-center">
+                        We have prepared your inquiry. To notify <strong class="text-emerald-900 font-semibold">KanhaiyaExim</strong> instantaneously, please select a dispatch method below:
+                    </p>
+                    <div class="flex flex-col gap-4 w-full">
+                        <a href="${mailtoUrl}" class="flex items-center justify-center gap-2 w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl shadow-md text-sm transition-transform hover:scale-[1.02]">
+                            <i class="ph ph-envelope"></i> Dispatch via Email (kanhaiyaexim@yahoo.com)
+                        </a>
+                        <a href="${whatsappUrl}" target="_blank" class="flex items-center justify-center gap-2 w-full py-4 bg-[#25D366] hover:bg-[#20ba56] text-white font-bold rounded-xl shadow-md text-sm transition-transform hover:scale-[1.02]">
+                            <i class="ph ph-whatsapp-logo text-lg"></i> Message on WhatsApp (Fastest)
+                        </a>
+                    </div>
+                    <button onclick="resetInquiryForm()" class="text-xs text-gray-500 underline hover:text-emerald-800 transition-colors mt-8">
+                        Fill another inquiry form
+                    </button>
+                </div>
+            `;
+        }
+
+        function resetInquiryForm() {
+            document.getElementById('contact-form-container').innerHTML = `
+                <form id="inquiry-form" class="space-y-5" onsubmit="handleInquirySubmit(event)">
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="form-name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-sm font-medium text-gray-700">Company</label>
+                            <input type="text" id="form-company" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all" placeholder="Inc.">
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" id="form-email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all" placeholder="john@company.com">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-sm font-medium text-gray-700">Requirement Type</label>
+                        <select id="form-requirement" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all text-gray-700">
+                            <option>Dry Vegetables</option>
+                            <option>Dry Fruits & Herbs</option>
+                            <option>Powders & Spray-Dried</option>
+                            <option>Custom Formulation</option>
+                            <option>Other / General Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-sm font-medium text-gray-700">Message & Specifications</label>
+                        <textarea id="form-message" rows="4" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all resize-none" placeholder="Provide details regarding volume, mesh size, destination port, etc."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-emerald-800 hover:bg-emerald-900 text-white font-bold rounded-xl shadow-md transition-all mt-4">
+                        Submit Inquiry
+                    </button>
+                </form>
+            `;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const canvas = document.getElementById('webgl-canvas');
+
+            // SCENE SETUP
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.Fog('#fcfbf7', 10, 40);
+
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 18;
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // PARTICLES
+            const particlesGeo = new THREE.BufferGeometry();
+            const particlesCount = 1500;
+            const posArray = new Float32Array(particlesCount * 3);
+            for(let i=0; i<particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 40;
+            }
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMat = new THREE.PointsMaterial({
+                size: 0.08, color: '#064e3b', transparent: true, opacity: 0.15
+            });
+            const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+            scene.add(particlesMesh);
+
+            // LIGHTING
+            const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
+            scene.add(ambientLight);
+
+            // MOUSE & RESIZE
+            let mouseX = 0, mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+                mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // ANIMATE
+            const startTime = performance.now();
+            const animate = () => {
+                requestAnimationFrame(animate);
+                const elapsedTime = (performance.now() - startTime) * 0.001;
+
+                // Slow drift combined with soft mouse parallax
+                particlesMesh.position.y = Math.sin(elapsedTime * 0.05) * 0.5 + (mouseY * -0.5);
+                particlesMesh.position.x = mouseX * 0.5;
+                particlesMesh.rotation.y = elapsedTime * 0.01;
+
+                renderer.render(scene, camera);
+            };
+            animate();
+        });
+    </script>
+</body>
+</html>
